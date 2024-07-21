@@ -12,7 +12,7 @@ def get_diff():
 def analyze_code(diff):
     prompt = f"Please review the following code diff and provide feedback:\n\n{diff}"
     response = openai.Completion.create(
-        model="text-davinci-003",
+        model="text-ada-001",
         prompt=prompt,
         max_tokens=500
     )
