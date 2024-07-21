@@ -1,14 +1,11 @@
-from openai import AsyncOpenAI
-# from openai import OpenAI
+from openai import OpenAI
 import os
 import subprocess
 
 # Set your OpenAI API key
-# client = OpenAI(
-#   api_key=os.environ['OPENAI_API_KEY'],  # this is also the default, it can be omitted
-# )
-
-client = AsyncOpenAI()
+client = OpenAI(
+  api_key=os.environ['OPENAI_API_KEY'],  # this is also the default, it can be omitted
+)
 
 def get_diff():
     result = subprocess.run(['git', 'diff', 'origin/main...HEAD'], stdout=subprocess.PIPE)
@@ -16,7 +13,7 @@ def get_diff():
 
 def analyze_code(diff):
     prompt = f"Please review the following code diff and provide feedback:\n\n{diff}"
-    response = await client.chat.completions.create(
+    response = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[{"role": "user", "content": prompt}]
     )
