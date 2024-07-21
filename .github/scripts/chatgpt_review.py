@@ -12,7 +12,7 @@ def get_diff():
     return result.stdout.decode('utf-8')
 
 def analyze_code(diff):
-    prompt = f"Please review the following code diff and provide feedback:\n\n{diff}"
+    prompt = f"Please review the following code diff and provide feedback. Consider possible mistakes, missing code or improving opportunities:\n\n{diff}"
     response = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[{"role": "user", "content": prompt}]
