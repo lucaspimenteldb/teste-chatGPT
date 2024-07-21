@@ -14,7 +14,7 @@ def get_diff():
 def analyze_code(diff):
     prompt = f"Please review the following code diff and provide feedback:\n\n{diff}"
     response = client.chat.completions.create(
-        model="gpt-3.5-turbo",
+        model="gpt-4o-mini",
         messages=[{"role": "user", "content": prompt}]
     )
     return response.choices[0].message.content
