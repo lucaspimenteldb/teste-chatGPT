@@ -11,12 +11,15 @@ def get_diff():
 
 def analyze_code(diff):
     prompt = f"Please review the following code diff and provide feedback:\n\n{diff}"
-    response = openai.Completion.create(
-        model="text-ada-001",
-        prompt=prompt,
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",  # Use the least expensive model or a suitable alternative
+        messages=[
+            {"role": "system", "content": "You are a helpful assistant."},
+            {"role": "user", "content": prompt}
+        ],
         max_tokens=500
     )
-    return response.choices[0].text.strip()
+    return response.choices[0].message['content'].strip()
 
 if __name__ == "__main__":
     diff = get_diff()
