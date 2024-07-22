@@ -6,9 +6,9 @@ class AiBot(ABC):
     __no_response = "Sem erros"
     __problems="errors, issues, potential crashes or unhandled exceptions"
     __chat_gpt_ask_long="""
-Could you describe briefly {problems} for the next code with given git diffs? 
+Please review the following code diff and provide feedback. Consider possible mistakes, missing code or improving opportunities:
 Please, also, do not add intro words, just print errors in the format: "line_number : cause effect"
-If there are no {problems} just say "{no_response}".
+If there are no problems just say "no_response".
 
 DIFFS:
 
