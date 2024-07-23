@@ -25,7 +25,6 @@ Full code from the file:
     @staticmethod
     def build_ask_text(code, diffs) -> str:
         return AiBot.__chat_gpt_ask_long.format(
-            problems = AiBot.__problems,
             no_response = AiBot.__no_response,
             diffs = diffs,
             code = code,
