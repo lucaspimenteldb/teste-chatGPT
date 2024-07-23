@@ -9,6 +9,7 @@ class ChatGPT(AiBot):
         self.__client = OpenAI(api_key = token)
 
     def ai_request_diffs(self, code, diffs):
+        print(f"ai question:{AiBot.build_ask_text(code=code, diffs=diffs)}")
         stream = self.__client.chat.completions.create(
             messages=[
                 {
@@ -19,6 +20,8 @@ class ChatGPT(AiBot):
             model = self.__chat_gpt_model,
             stream = True,
         )
+        print(f"message: {stream.choices[0].message.content}")
+        print(f"delta: {stream.choices[0].delta.content}")
         content = []
         for chunk in stream:
             if chunk.choices[0].delta.content:
