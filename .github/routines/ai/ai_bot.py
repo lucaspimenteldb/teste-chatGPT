@@ -2,12 +2,11 @@ from abc import ABC, abstractmethod
 from ai.line_comment import LineComment
 
 class AiBot(ABC):
-    
     __no_response = "No errors"
     __chat_gpt_ask_long="""
-Please review the following code diff and provide feedback. Consider possible mistakes, missing code or improving opportunities:
-Please, also, do not add intro words, just print errors in the format: "line_number : cause effect"
-If there are no problems just say "{no_response}".
+Please review the following code diff and provide feedback. Consider possible mistakes, missing code and improvement opportunities.
+Do not add intro words, just print errors in the format: "line_number: cause effect"
+If there are no problems just say "no errors". Make sure to translate yours answers to portuguese portuguese.
 
 DIFFS:
 

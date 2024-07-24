@@ -19,7 +19,6 @@ class ChatGPT(AiBot):
             model = self.__chat_gpt_model,
             stream = True,
         )
-        print(f"message: {stream}")
         content = []
         for chunk in stream:
             if chunk.choices[0].delta.content:
