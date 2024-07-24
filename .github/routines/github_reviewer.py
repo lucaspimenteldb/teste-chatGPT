@@ -58,7 +58,6 @@ def main():
         if AiBot.is_no_issues_text(response):
             Log.print_green("File looks good. Continue", file)
         else:
-            Log.print_red(f"responses: {response}")
             responses = AiBot.split_ai_response(response)
             if len(responses) == 0:
                 Log.print_red("Responses where not parsed:", responses)
