@@ -6,9 +6,9 @@ name: ChatGPT PR review
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: ["staging", "development"]
+    branches: ["main", "staging", "development"]
   pull_request:
-    branches: ["staging", "development"]
+    branches: ["main", "staging", "development"]
     # remove "synchronize" after first tests
     types: ["opened", "synchronize"]
 
