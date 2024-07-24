@@ -2,13 +2,11 @@ from abc import ABC, abstractmethod
 from ai.line_comment import LineComment
 
 class AiBot(ABC):
-    
-    __no_response = "Sem erros"
-    __problems="errors, issues, potential crashes or unhandled exceptions"
+    __no_response = "No errors"
     __chat_gpt_ask_long="""
-Could you describe briefly {problems} for the next code with given git diffs? 
-Please, also, do not add intro words, just print errors in the format: "line_number : cause effect"
-If there are no {problems} just say "{no_response}".
+Please review the following code diff and provide feedback. Consider possible mistakes, missing code and improvement opportunities.
+Do not add intro words, just print errors in the format: "line_number: cause effect"
+If there are no problems just say "no errors". Make sure to translate yours answers to portuguese portuguese.
 
 DIFFS:
 
@@ -26,7 +24,6 @@ Full code from the file:
     @staticmethod
     def build_ask_text(code, diffs) -> str:
         return AiBot.__chat_gpt_ask_long.format(
-            problems = AiBot.__problems,
             no_response = AiBot.__no_response,
             diffs = diffs,
             code = code,

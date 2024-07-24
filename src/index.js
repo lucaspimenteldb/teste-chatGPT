@@ -1,3 +1,3 @@
-const abrirModal = () => {
-  document.getElementById("modal").classList.add("modal--aberto");
-}
+  const abrirModal = () => {
+    document.getElementById("modal").classList.add("modal--aberto");
+  }
